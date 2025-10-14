@@ -14,8 +14,7 @@ import java.net.URISyntaxException;
 import java.util.Collections;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @AutoConfigureMockMvc
 @ExtendWith(MockitoExtension.class)
@@ -39,6 +38,6 @@ public class EurekaUriProviderTest {
         Mockito.when(discoveryClient.getInstances("serviceId")).thenReturn(serviceInstances);
         Mockito.when(serviceInstance.getUri()).thenReturn(new java.net.URI("https://example.com"));
         String uri = uriProvider.getUri("serviceId");
-        assertThat("https://example.com", is(uri));
+        assertThat("https://example.com").isEqualTo(uri);
     }
 }
