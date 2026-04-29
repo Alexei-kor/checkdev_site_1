@@ -22,5 +22,4 @@ public class SiteSrv {
         application.run();
         log.info("Go to -> :{}", SITE);
     }
-
 }
